@@ -1,43 +1,42 @@
-<header class="site-navigation">
-  <div class="wrapper">
-    <a href="/" title="Swift logo" id="logo"></a>
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 shadow-sm backdrop-blur bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <a href="/" class="flex items-center" title="Swift.org">
+        <img src="/assets/images/new-images/logo-swift.png" alt="Swift" class="h-8 w-auto" />
+      </a>
 
-    <nav role="navigation">
-      {% include new-includes/components/toggle-button.html
-        id="menu-toggle"
-        img_on="/assets/images/new-images/icon-close.svg"
-        img_off="/assets/images/new-images/icon-menu.svg"
-      %}
-      <ul class="navigation-links">
-        {% for nav in site.data.navigation %}
-          <li class="nav-item{% if nav.isCta %} nav-cta{% endif %}">
-            {% if nav.isCta and nav.url %}
-              <a href="{{ nav.url }}" data-text="{{ nav.header }}">{{ nav.header }}</a>
-            {% else %}
-              <span class="{% if page.url == nav.url %}active{% endif %}">
-                {% if nav.url %}
-                  <a href="{{ nav.url }}" data-text="{{ nav.header }}">{{ nav.header }}</a>
-                {% else %}
-                  {{ nav.header }}
-                {% endif %}
-              </span>
-            {% endif %}
-            {% if nav.pages %}
-            <ul class="nav-submenu" role="menu">
-              {% for navpage in nav.pages %}
-                {% if navpage.section %}
-                  <li class="nav-section">{{ navpage.section }}</li>
-                {% else %}
-                  <li role="presentation" class="{% if page.url == navpage.url %}active{% endif %}">
-                    <a href="{{ navpage.url }}" role="menuitem">{{ navpage.title }}</a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
+      <nav class="flex items-center">
+        <ul class="hidden md:flex md:space-x-8">
+          {% for nav in site.data.navigation %}
+            <li class="relative group">
+              {% if nav.isCta and nav.url %}
+                <a href="{{ nav.url }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 shadow-sm transition-all" data-text="{{ nav.header }}">{{ nav.header }}</a>
+              {% else %}
+                <span class="{% if page.url == nav.url %}text-orange-600 dark:text-orange-400 font-medium{% else %}text-gray-700 dark:text-gray-300{% endif %}">
+                  {% if nav.url %}
+                    <a href="{{ nav.url }}" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors py-2 inline-block" data-text="{{ nav.header }}">{{ nav.header }}</a>
+                  {% else %}
+                    <span class="cursor-default py-2 inline-block">{{ nav.header }}</span>
+                  {% endif %}
+                </span>
+              {% endif %}
+              {% if nav.pages %}
+              <ul class="hidden group-hover:block absolute left-0 mt-1 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 transition-all">
+                {% for navpage in nav.pages %}
+                  {% if navpage.section %}
+                    <li class="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 font-medium">{{ navpage.section }}</li>
+                  {% else %}
+                    <li class="{% if page.url == navpage.url %}bg-gray-100 dark:bg-gray-700{% endif %}">
+                      <a href="{{ navpage.url }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">{{ navpage.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>

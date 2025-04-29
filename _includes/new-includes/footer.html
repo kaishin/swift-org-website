@@ -1,27 +1,43 @@
-<footer role="contentinfo">
-  <div class="footer-content">
-    <p class="copyright">
-      Copyright © {{ site.time | date: '%Y' }} Apple Inc. All rights reserved.
-    </p>
-    <p class="trademark">
-      Swift and the Swift logo are trademarks of Apple Inc.
-    </p>
-    <p class="privacy">
-      <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
-      <a href="https://www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
-    </p>
-  </div>
-  <div class="footer-other">
-    <aside>
-      <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter"></i></a>
-      <a href="/atom.xml" title="Subscribe to Site Updates"><i class="feed"></i></a>
-      <div class="theme-switch">
-        {% include new-includes/components/toggle-button.html
-          id="theme-toggle"
-          img_on="/assets/images/new-images/icon-theme.svg"
-          img_off="/assets/images/new-images/icon-theme.svg"
-        %}
+<footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <div class="flex items-center mb-6">
+          <img src="/assets/images/new-images/logo-swift.png" alt="Swift" class="h-6 w-auto" />
+          <span class="ml-2 text-md font-semibold text-gray-700 dark:text-gray-300">.org</span>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          Copyright © {{ site.time | date: '%Y' }} Apple Inc. All rights reserved.
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          Swift and the Swift logo are trademarks of Apple Inc.
+        </p>
+        <div class="flex space-x-4 pt-2">
+          <a href="https://www.apple.com/privacy/privacy-policy/" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">Privacy Policy</a>
+          <a href="https://www.apple.com/legal/privacy/en-ww/cookies/" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">Cookies</a>
+        </div>
       </div>
-    </aside>
+      <div class="flex flex-col md:items-end space-y-6">
+        <div class="flex items-center space-x-6">
+          <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter" class="text-gray-400 hover:text-blue-500 transition-colors">
+            <span class="sr-only">Twitter</span>
+            <img src="/assets/images/icon-x.svg" alt="X/Twitter" class="h-6 w-6" />
+          </a>
+          <a href="https://mastodon.social/@swiftlang" rel="nofollow" title="Follow @SwiftLang on Mastodon" class="text-gray-400 hover:text-purple-500 transition-colors">
+            <span class="sr-only">Mastodon</span>
+            <img src="/assets/images/icon-mastodon.svg" alt="Mastodon" class="h-6 w-6" />
+          </a>
+          <a href="/atom.xml" title="Subscribe to Site Updates" class="text-gray-400 hover:text-orange-500 transition-colors">
+            <span class="sr-only">RSS Feed</span>
+            <img src="/assets/images/icon-feed.svg" alt="RSS Feed" class="h-6 w-6" />
+          </a>
+        </div>
+        <div class="flex space-x-4 pt-2 text-sm text-gray-500 dark:text-gray-400">
+          <a href="/blog/" class="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">Blog</a>
+          <a href="/about/" class="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">About</a>
+          <a href="/community/" class="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">Community</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

@@ -1,7 +1,7 @@
 {% if include.link %}
-<a class="box-link" href="{{ include.link }}" target="{{ include.target }}">
+<a class="transition-transform hover:scale-[1.01] focus:scale-[1.01]" href="{{ include.link }}" target="{{ include.target }}">
 {% endif %}
-  <div class="box {{ include.type }} {{ include.style }} {{ include.image }}" {% if include.css %}style="{{ include.css }}" {% endif %} markdown="1">
+  <div class="overflow-hidden shadow-sm border p-4 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 {{ include.type }} {{ include.style }} {{ include.image }}" {% if include.css %}style="{{ include.css }}" {% endif %} markdown="1">
     {% if include.type == "code" %}
       {% include new-includes/components/code.html language=include.language code=include.content %}
     {% else %}

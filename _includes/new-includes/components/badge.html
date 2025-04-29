@@ -1,9 +1,10 @@
-<div class="badges">
+<div class="flex flex-wrap gap-4">
   {% for page_author in include.authors %}
     {% assign author = site.data.new-data.authors[page_author] %}
-    <div class="badge">
-      <div>
+    <div class="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+      <div class="flex-shrink-0">
         <img
+          class="h-12 w-12 rounded-full object-cover"
           {% if author.gravatar %}
             src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=64&d=mp"
           {% elsif author.github %}
@@ -14,20 +15,22 @@
           alt="{{ author.name }}"
           title="{% if include.compact %} {{ author.about }}{% endif %}"
         />
-        <span class="name">
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="text-sm font-medium text-gray-900 dark:text-white">
           {% if author.github %}
-          <a href="https://github.com/{{ author.github }}/" rel="nofollow" title="{{ author.name }} (@{{ author.github}}) on GitHub">{{ author.name }}</a>
+          <a href="https://github.com/{{ author.github }}/" class="hover:text-orange-600 dark:hover:text-orange-400" rel="nofollow" title="{{ author.name }} (@{{ author.github}}) on GitHub">{{ author.name }}</a>
           {% else %}
             {{ author.name }}
           {% endif %}
-        </span>
-      </div>
+        </div>
 
-      {% if author.about and include.show_about == true %}
-        <p class="about">
-          {{ author.about }}
-        </p>
-      {% endif %}
+        {% if author.about and include.show_about == true %}
+          <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            {{ author.about }}
+          </p>
+        {% endif %}
+      </div>
     </div>
   {% endfor %}
 </div>
